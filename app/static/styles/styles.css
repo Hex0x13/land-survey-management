@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --lss-black: #323232;
+  --lss-blue: #46B1C8;
+  --lss-blue-8: #46b0c8cc;
+  --lss-green: #46C899;
+  --lss-indigo: #3849E1;
+  --lss-white: #ffffff;
+  --lss-gray: #b2adadd2;
+  --lss-logo-font-size: 28px;
+  --logo-img-size: 60px;
+}
+
+body, *, *::before, *::after {
+  background-color: var(--lss-black);
+  color: var(--lss-white);
+  font-family: "Montserrat", sans-serif, Arial, Helvetica;
+}
+
+.lss-cred-input {
+  border: 1px solid var(--lss-white);
+  border-radius: 12px;
+  padding: 3px 12px;
+  height: 40px;
+  width: 100%;
+}
+
+.lss-cred-input:focus {
+  background-color: var(--lss-white);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 300px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.logo > img {
+  width: var(--logo-img-size);
+  height: var(--logo-img-size);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.logo > h1 {
+  width: 190px;
+  margin: auto 0;
+  font-size: var(--lss-logo-font-size);
+  line-height: calc(var(--lss-logo-font-size) - 3px);
+  font-weight: 900;
+  color: var(--lss-black);
+  text-shadow: 1px 1px var(--lss-white), -1px -1px var(--lss-white),
+    -1px 1px var(--lss-white), 1px -1px var(--lss-white);
+}
+
+.lss-blue-btn {
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  background-color: var(--lss-blue);
+  color: var(--lss-white);
+}
+
+.lss-blue-btn:hover {
+  opacity: 0.8;
+  transition: all 300ms;
+}
