@@ -26,7 +26,7 @@
           <img src="static/images/dashboard.svg">
           <span>Dashboard</span>
         </li>
-        <li class="nav-btn">
+        <li class="nav-btn" data-target-content="#projects">
           <img src="static/images/project.svg">
           <span>Projects</span>
         </li>
@@ -37,6 +37,10 @@
         <li class="nav-btn" data-target-content="#clients">
           <img src="static/images/clients.svg">
           <span>Clients</span>
+        </li>
+        <li class="nav-btn" data-target-content="#surveyor">
+          <img src="static/images/clients.svg">
+          <span>Surveyor</span>
         </li>
       </ul>
     </div>
@@ -64,11 +68,12 @@
     <div class="main-contents">
       <div id="dashboard" class="content d-flex flex-wrap m-3 show">
         <div class="card display-flex justify-content-center">
-          <div class="display-flex align-items-center">
-            <span class="label">Projects</span>
-            <span class="number">0</span>
+          <div class="name display-flex align-items-center">
+            Projects
           </div>
-          <div class="view">View Projects</div>
+          <div class="view">
+            View Projects
+          </div>
         </div>
       </div>
       <div id="projects" class="content m-3">
@@ -79,6 +84,9 @@
       </div>
       <div id="clients" class="content m-3">
         clients
+      </div>
+      <div id="surveyor" class="content m-3">
+        Clients
       </div>
     </div>
   </div>

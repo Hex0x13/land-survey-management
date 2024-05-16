@@ -151,7 +151,8 @@
 #dashboard.show,
 #projects.show,
 #land-parcel.show,
-#clients.show {
+#clients.show,
+#surveyor.show {
   display: flex !important;
 }
 
