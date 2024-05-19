@@ -71,3 +71,16 @@ body, *, *::before, *::after {
   opacity: 0.8;
   transition: all 300ms;
 }
+
+.modal {
+  background-color: transparent;
+}
+
+.btn-close {
+  --lss-close-bg: url('../images/close-x.svg');
+  background: transparent var(--lss-close-bg) center/1em auto no-repeat;
+}
+
+.modal-dialog {
+  max-width: 600px;
+}

@@ -1,0 +1,193 @@
+<!-- Surveyor Form Modal -->
+<div class="modal fade" id="surveyorModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="surveyorModalLabel">Add Surveyor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="surveyor-firstname">First Name:</label>
+            <input type="text" class="form-control" id="surveyor-firstname" placeholder="Enter first name" name="fname" required>
+          </div>
+          <div class="form-group">
+            <label for="surveyor-lastname">Last Name:</label>
+            <input type="text" class="form-control" id="surveyor-lastname" placeholder="Enter last name" name="lname" required>
+          </div>
+          <div class="form-group">
+            <label for="surveyor-middlename">Middle Name:</label>
+            <input type="text" class="form-control" id="surveyor-middlename" placeholder="Enter middle name" name="mname">
+          </div>
+          <div class="form-group">
+            <label for="surveyor-extension">Name Extension:</label>
+            <input type="text" class="form-control" id="surveyor-extension" placeholder="Enter name extension" name="name_ext">
+          </div>
+          <div class="form-group">
+            <label for="surveyor-email">Email:</label>
+            <input type="email" class="form-control" id="surveyor-email" placeholder="Enter email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="surveyor-title">Title:</label>
+            <input type="text" class="form-control" id="surveyor-title" placeholder="Enter title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="surveyor-contact">Contact Number:</label>
+            <input type="tel" class="form-control" id="surveyor-contact" placeholder="Enter contact number" name="contact_number" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Client Form Modal -->
+<div class="modal fade" id="clientModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="clientModalLabel">Add Client</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="client-firstname">First Name:</label>
+            <input type="text" class="form-control" id="client-firstname" placeholder="Enter first name" name="fname" required>
+          </div>
+          <div class="form-group">
+            <label for="client-lastname">Last Name:</label>
+            <input type="text" class="form-control" id="client-lastname" placeholder="Enter last name" name="lname" required>
+          </div>
+          <div class="form-group">
+            <label for="client-middlename">Middle Name:</label>
+            <input type="text" class="form-control" id="client-middlename" placeholder="Enter middle name" name="mname">
+          </div>
+          <div class="form-group">
+            <label for="client-extension">Name Extension:</label>
+            <input type="text" class="form-control" id="client-extension" placeholder="Enter name extension" name="name_ext">
+          </div>
+          <div class="form-group">
+            <label for="client-contact">Contact Number:</label>
+            <input type="tel" class="form-control" id="client-contact" placeholder="Enter contact number" name="contact_number" required>
+          </div>
+          <div class="form-group">
+            <label for="client-email">Email:</label>
+            <input type="email" class="form-control" id="client-email" placeholder="Enter email" name="email">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Project Form Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectModalLabel">Project Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="project-name">Name:</label>
+            <input type="text" class="form-control" id="project-name" placeholder="Enter project name" required>
+          </div>
+          <div class="form-group">
+            <label for="project-description">Description:</label>
+            <textarea class="form-control" id="project-description" rows="3" placeholder="Enter project description"
+              required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="project-start">Start Date:</label>
+            <input type="datetime-local" class="form-control" id="project-start" required>
+          </div>
+          <div class="form-group">
+            <label for="project-end">End Date:</label>
+            <input type="datetime-local" class="form-control" id="project-end">
+          </div>
+          <div class="form-group">
+            <label for="project-images">Images:</label>
+            <input type="file" class="form-control-file" id="project-images" multiple>
+          </div>
+          <div class="form-group">
+            <label for="project-access-modifier">Access Modifier:</label>
+            <select class="form-control" id="project-access-modifier">
+              <option value="private">Private</option>
+              <option value="public">Public</option>
+              <option value="surveyors">Surveyors</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="project-client">Client:</label>
+            <select class="form-control" id="project-client">
+              <!-- Options for land parcels will be dynamically populated -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="land-parcel-legal">Legal Description:</label>
+            <input type="text" class="form-control" id="land-parcel-legal" placeholder="Enter legal description"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="land-parcel-street">Street:</label>
+            <input type="text" class="form-control" id="land-parcel-street" placeholder="Enter street" required>
+          </div>
+          <div class="form-group">
+            <label for="land-parcel-subdivision">Subdivision:</label>
+            <input type="text" class="form-control" id="land-parcel-subdivision" placeholder="Enter subdivision"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="land-parcel-city">City:</label>
+            <input type="text" class="form-control" id="land-parcel-city" placeholder="Enter city" required>
+          </div>
+          <div class="form-group">
+            <label for="land-parcel-province">Province:</label>
+            <input type="text" class="form-control" id="land-parcel-province" placeholder="Enter province" required>
+          </div>
+          <div class="form-group">
+            <label for="land-parcel-zipcode">Zip Code:</label>
+            <input type="text" class="form-control" id="land-parcel-zipcode" placeholder="Enter zip code" required>
+          </div>
+          <div class="form-group">
+            <label for="land-parcel-area">Area:</label>
+            <input type="text" class="form-control" id="land-parcel-area" placeholder="Enter area" required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+<div class="modal fade" id="projectModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectModalLabel">Project Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action=""></form>
+      </div>
+    </div>
+  </div>
+</div> -->

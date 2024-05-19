@@ -138,24 +138,56 @@
   display: block;
 }
 
-.main-contents > .content {
-  display: none !important;
+.main-contents {
+  position: relative;
 }
 
-#dashboard > div {
+.main-contents > .content {
+  display: none;
+}
+
+#dashboard > .card {
   width: 300px;
   height: 120px;
   margin: 10px;
 }
 
-#dashboard.show,
-#projects.show,
-#land-parcel.show,
-#clients.show,
-#surveyor.show {
-  display: flex !important;
+.main-contents > .content.show {
+  display: flex;
 }
 
 li.nav-btn.active {
   filter: brightness(0.96);
+}
+
+#dashboard .card,
+#dashboard .card * {
+  background-color: var(--lss-blue);
+}
+
+#surveyor,
+#clients {
+  flex-direction: column;
+}
+
+.add-button {
+  --container-size: 56px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  height: var(--container-size);
+  width: var(--container-size);
+  background-color: var(--lss-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-button img {
+  --img-size: 30px;
+  height: var(--img-size);
+  width: var(--img-size);
+  background-color: transparent;
 }
