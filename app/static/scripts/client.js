@@ -60,33 +60,44 @@ async function updateClient(id, form) {
 async function displayClients() {
   const clients = await getAllClient();
   const tbody = document.querySelector('#clients .data>table>tbody');
+  document.querySelector('#dashboard .client.number').textContent = clients.length;
   tbody.innerHTML = '';
   clients.forEach(client => {
     const tr = document.createElement('tr');
     tr.setAttribute('scope', 'row');
     tr.setAttribute('data-client-id', client[0]);
+    tr.setAttribute('data-client-email', client[2]);
     Object.values(client).forEach(col => {
       const td = document.createElement('td');
       td.textContent = col;
+      td.classList.add('text-center');
       tr.appendChild(td);
     });
     const tdAction = document.createElement('td');
-
+    
     const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('delete-btn');
-    deleteBtn.textContent = 'Delete'
+    const deleteIcon = document.createElement('i');
+    deleteBtn.appendChild(deleteIcon);
+    deleteBtn.classList.add('delete-btn', 'bg-transparent', 'border-0');
+    deleteIcon.classList.add('icon', 'trash-fill', 'bg-transparent');
+    deleteBtn.setAttribute('data-bs-toggle', 'modal');
+    deleteBtn.setAttribute('data-bs-target', '#deleteClientModal');
 
     const editBtn = document.createElement('button');
-    editBtn.classList.add('edit-btn')
-    editBtn.textContent = 'Edit';
+    const editIcon = document.createElement('i');
+    editBtn.appendChild(editIcon);
+    editBtn.classList.add('edit-btn', 'bg-transparent', 'border-0');
+    editIcon.classList.add('icon', 'pencil-box', 'bg-transparent');
     editBtn.setAttribute('data-bs-toggle', 'modal');
     editBtn.setAttribute('data-bs-target', '#clientModal');
 
+    tdAction.classList.add('text-center');
     tdAction.appendChild(deleteBtn);
     tdAction.appendChild(editBtn);
     tr.appendChild(tdAction);
     tbody.appendChild(tr);
   });
+  populateClientsSelect();
 }
 
 function loadClientListener() {
@@ -141,6 +152,25 @@ function loadClientListener() {
   clientModal.addEventListener('hidden.bs.modal', function () {
     const form = document.querySelector('#clientModal form');
     form.reset();
+  });
+
+
+  const deleteClientModal = document.querySelector('#deleteClientModal');
+  const submitDeleteForm = document.querySelector('#deleteClientModal [type="submit"]');
+
+  deleteClientModal.addEventListener('show.bs.modal', event => {
+    const row = event.relatedTarget.closest('tr');
+    const email = row.getAttribute('data-client-email');
+    const id = row.getAttribute('data-client-id');
+    deleteClientModal.querySelector('#clientInfo').textContent = email;
+    submitDeleteForm.setAttribute('data-client-id', id);
+  });
+
+  submitDeleteForm.addEventListener('click', event => {
+    event.preventDefault();
+    const id = submitDeleteForm.getAttribute('data-client-id');
+    deleteClient(id).then(displayClients);
+    closeModal('#deleteClientModal');
   });
 }
 

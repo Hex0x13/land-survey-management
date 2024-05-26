@@ -7,4 +7,5 @@ app.config.from_object(Config)
 
 from app import surveyor_routes
 from app import client_routes
+from app import project_routes
 from app import views

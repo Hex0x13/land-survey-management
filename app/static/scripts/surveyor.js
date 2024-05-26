@@ -60,33 +60,44 @@ async function updateSurveyor(id, form) {
 async function displaySurveyors() {
   const surveyors = await getAllSurveyor();
   const tbody = document.querySelector('#surveyor .data>table>tbody');
+  document.querySelector('#dashboard .surveyor.number').textContent = surveyors.length;
   tbody.innerHTML = '';
   surveyors.forEach(surveyor => {
     const tr = document.createElement('tr');
     tr.setAttribute('scope', 'row');
     tr.setAttribute('data-surveyor-id', surveyor[0]);
+    tr.setAttribute('data-surveyor-email', surveyor[2]);
     Object.values(surveyor).forEach(col => {
       const td = document.createElement('td');
       td.textContent = col;
+      td.classList.add('text-center')
       tr.appendChild(td);
     });
     const tdAction = document.createElement('td');
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('delete-btn');
-    deleteBtn.textContent = 'Delete'
+    const deleteIcon = document.createElement('i');
+    deleteBtn.appendChild(deleteIcon);
+    deleteBtn.classList.add('delete-btn', 'bg-transparent', 'border-0');
+    deleteIcon.classList.add('icon', 'trash-fill', 'bg-transparent');
+    deleteBtn.setAttribute('data-bs-toggle', 'modal');
+    deleteBtn.setAttribute('data-bs-target', '#deleteSurveyorModal');
 
     const editBtn = document.createElement('button');
-    editBtn.classList.add('edit-btn')
-    editBtn.textContent = 'Edit';
+    const editIcon = document.createElement('i');
+    editBtn.appendChild(editIcon);
+    editBtn.classList.add('edit-btn', 'bg-transparent', 'border-0');
+    editIcon.classList.add('icon', 'pencil-box', 'bg-transparent');
     editBtn.setAttribute('data-bs-toggle', 'modal');
     editBtn.setAttribute('data-bs-target', '#surveyorModal');
 
+    tdAction.classList.add('text-center')
     tdAction.appendChild(deleteBtn);
     tdAction.appendChild(editBtn);
     tr.appendChild(tdAction);
     tbody.appendChild(tr);
   });
+  populatesurveyorSelect();
 }
 
 function loadSurveyorListener() {
@@ -139,9 +150,28 @@ function loadSurveyorListener() {
     }
   });
   
-  surveyorModal.addEventListener('hidden.bs.modal', function(event) {
+  surveyorModal.addEventListener('hidden.bs.modal', function() {
       const form = document.querySelector('#surveyorModal form');
       form.reset();
+  });
+
+
+  const deleteSurveyorModal = document.querySelector('#deleteSurveyorModal');
+  const submitDeleteForm = document.querySelector('#deleteSurveyorModal [type="submit"]');
+
+  deleteSurveyorModal.addEventListener('show.bs.modal', event => {
+    const row = event.relatedTarget.closest('tr');
+    const email = row.getAttribute('data-surveyor-email');
+    const id = row.getAttribute('data-surveyor-id');
+    deleteSurveyorModal.querySelector('#surveyorInfo').textContent = email;
+    submitDeleteForm.setAttribute('data-surveyor-id', id);
+  });
+
+  submitDeleteForm.addEventListener('click', event => {
+    event.preventDefault();
+    const id = submitDeleteForm.getAttribute('data-surveyor-id');
+    deleteSurveyor(id).then(displaySurveyors);
+    closeModal('#deleteSurveyorModal');
   });
 }
 

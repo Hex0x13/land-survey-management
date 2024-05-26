@@ -1,45 +1,44 @@
 <!-- Surveyor Form Modal -->
 <div class="modal fade" id="surveyorModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog rounded">
+    <div class="modal-content bg-transparent">
+      <div class="modal-header border-bottom border-secondary">
         <h5 class="modal-title" id="surveyorModalLabel">Add Surveyor</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body p-5">
         <form>
-          <div class="form-group">
-            <label for="surveyor-firstname">First Name:</label>
-            <input type="text" class="form-control" id="surveyor-firstname" placeholder="Enter first name" name="fname" required>
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="surveyor-firstname" placeholder="First name" name="fname" required>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="surveyor-lastname" placeholder="Fast name" name="lname" required>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="surveyor-lastname">Last Name:</label>
-            <input type="text" class="form-control" id="surveyor-lastname" placeholder="Enter last name" name="lname" required>
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="surveyor-middlename" placeholder="Middle name" name="mname">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="surveyor-extension" placeholder="Name extension" name="name_ext">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="surveyor-middlename">Middle Name:</label>
-            <input type="text" class="form-control" id="surveyor-middlename" placeholder="Enter middle name" name="mname">
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <input type="email" class="form-control" id="surveyor-email" placeholder="Email" name="email">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="surveyor-title" placeholder="Title" name="title" required>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="surveyor-extension">Name Extension:</label>
-            <input type="text" class="form-control" id="surveyor-extension" placeholder="Enter name extension" name="name_ext">
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <input type="tel" class="form-control" id="surveyor-contact" placeholder="Contact number" name="contact_number" required>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="surveyor-email">Email:</label>
-            <input type="email" class="form-control" id="surveyor-email" placeholder="Enter email" name="email">
-          </div>
-          <div class="form-group">
-            <label for="surveyor-title">Title:</label>
-            <input type="text" class="form-control" id="surveyor-title" placeholder="Enter title" name="title" required>
-          </div>
-          <div class="form-group">
-            <label for="surveyor-contact">Contact Number:</label>
-            <input type="tel" class="form-control" id="surveyor-contact" placeholder="Enter contact number" name="contact_number" required>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+          <button type="submit" class="btn btn-info lss-fg-white">Submit</button>
         </form>
       </div>
     </div>
@@ -48,127 +47,241 @@
 
 <!-- Client Form Modal -->
 <div class="modal fade" id="clientModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog rounded">
+    <div class="modal-content bg-transparent">
+      <div class="modal-header border-bottom border-secondary">
         <h5 class="modal-title" id="clientModalLabel">Add Client</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body p-5">
         <form>
-          <div class="form-group">
-            <label for="client-firstname">First Name:</label>
-            <input type="text" class="form-control" id="client-firstname" placeholder="Enter first name" name="fname" required>
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="client-firstname" placeholder="First name" name="fname" required>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="client-lastname" placeholder="Last name" name="lname" required>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="client-lastname">Last Name:</label>
-            <input type="text" class="form-control" id="client-lastname" placeholder="Enter last name" name="lname" required>
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="client-middlename" placeholder="Middle name" name="mname">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="client-extension" placeholder="Name extension" name="name_ext">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="client-middlename">Middle Name:</label>
-            <input type="text" class="form-control" id="client-middlename" placeholder="Enter middle name" name="mname">
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <input type="tel" class="form-control" id="client-contact" placeholder="Contact number" name="contact_number" required>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="email" class="form-control" id="client-email" placeholder="Email" name="email">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="client-extension">Name Extension:</label>
-            <input type="text" class="form-control" id="client-extension" placeholder="Enter name extension" name="name_ext">
-          </div>
-          <div class="form-group">
-            <label for="client-contact">Contact Number:</label>
-            <input type="tel" class="form-control" id="client-contact" placeholder="Enter contact number" name="contact_number" required>
-          </div>
-          <div class="form-group">
-            <label for="client-email">Email:</label>
-            <input type="email" class="form-control" id="client-email" placeholder="Enter email" name="email">
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+          <button type="submit" class="btn btn-info lss-fg-white">Submit</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<!-- DELETE Form Modal -->
+<div class="modal fade" id="deleteSurveyorModal" tabindex="-1">
+  <div class="modal-dialog rounded">
+    <div class="modal-content bg-transparent">
+      <div class="modal-header border-bottom border-secondary">
+        <h5 class="modal-title" id="deleteSurveyorModalLabel">Remove Surveyor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-2">
+            <div for="deleteButton">Are you sure you want to remove <em id="surveyorInfo"></em>&quest;</div>
+          </div>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">No</button>
+          <button type="submit" class="btn btn-info ml-3 lss-fg-white">Yes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteClientModal" tabindex="-1">
+  <div class="modal-dialog rounded">
+    <div class="modal-content bg-transparent">
+      <div class="modal-header border-bottom border-secondary">
+        <h5 class="modal-title" id="deleteClientModalLabel">Remove Client</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-2">
+            <div for="deleteButton">Are you sure you want to remove <em id="clientInfo"></em>&quest;</div>
+          </div>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">No</button>
+          <button type="submit" class="btn btn-info lss-fg-white ml-3">Yes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Project Form Modal -->
 <div class="modal fade" id="projectModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog rounded">
+    <div class="modal-content bg-transparent">
+      <div class="modal-header border-bottom border-secondary">
         <h5 class="modal-title" id="projectModalLabel">Project Form</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="project-name">Name:</label>
-            <input type="text" class="form-control" id="project-name" placeholder="Enter project name" required>
+        <form id="projectForm">
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <label for="project-name">Name:</label>
+              <input type="text" class="form-control" id="project-name" name="project-name" placeholder="Enter project name" required>
+            </div>
+            <div class="col-md-6 row">
+              <div class="form-group col-md-8">
+                <label for="project-client">Client:</label>
+                <select class="form-control" id="project-client" name="project-client"></select>
+              </div>
+              <button type="button" class="add-button no-style btn btn-info lss-fg-white col-md-4 mt-auto rounded" data-bs-toggle="modal" data-bs-target="#clientModal">
+                Add
+              </button>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="project-description">Description:</label>
-            <textarea class="form-control" id="project-description" rows="3" placeholder="Enter project description"
-              required></textarea>
+          <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <label for="project-start">Start Date:</label>
+              <input type="datetime-local" class="form-control" id="project-start" name="project-start" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="project-end">End Date:</label>
+              <input type="datetime-local" class="form-control" id="project-end" name="project-end">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="project-start">Start Date:</label>
-            <input type="datetime-local" class="form-control" id="project-start" required>
+          <div class="row pb-3">
+            <div class="form-group col-md-12">
+              <label for="project-description">Description:</label>
+              <textarea class="form-control" id="project-description" name="project-description" rows="3" placeholder="Enter project description" required></textarea>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="project-end">End Date:</label>
-            <input type="datetime-local" class="form-control" id="project-end">
+
+          <div id="img-upload-container">
+            <div class="row pb-3">
+              <div class="form-group col-md-6">
+                <button class="btn btn-secondary w-100 custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#img-upload-imageCollapse" aria-expanded="false" aria-controls="img-upload-imageCollapse">
+                  Uploaded Images <span class="accordion-arrow"></span>
+                </button>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="file" class="form-control" id="img-upload-project-files" name="img-upload-project-files" accept="image/*" multiple>
+              </div>
+            </div>
+            <div class="accordion-item mb-3">
+              <div id="img-upload-imageCollapse" class="accordion-collapse collapse" aria-labelledby="img-upload-imageHeading">
+                <div class="accordion-body">
+                  <div class="row" id="img-upload-uploaded-images"></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="project-images">Images:</label>
-            <input type="file" class="form-control-file" id="project-images" multiple>
+
+          <div class="accordion" id="addressAccordion">
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header" id="addressHeading">
+                <button class="accordion-button collapsed custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#addressCollapse" aria-expanded="false" aria-controls="addressCollapse">
+                  Address Details
+                </button>
+              </h2>
+              <div id="addressCollapse" class="accordion-collapse collapse" aria-labelledby="addressHeading" data-bs-parent="#addressAccordion">
+                <div class="accordion-body border border-white rounded-bottom">
+                  <div class="row pb-3">
+                    <div class="form-group col-md-12">
+                      <label for="land-parcel-legal">Legal Description:</label>
+                      <textarea class="form-control" id="land-parcel-legal" name="land-parcel-legal" rows="3" placeholder="Enter legal description" required></textarea>
+                    </div>
+                  </div>
+                  <div class="row pb-3">
+                    <div class="form-group col-md-6">
+                      <label for="land-parcel-street">Street:</label>
+                      <input type="text" class="form-control" id="land-parcel-street" name="land-parcel-street" placeholder="Enter street" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="land-parcel-subdivision">Subdivision:</label>
+                      <input type="text" class="form-control" id="land-parcel-subdivision" name="land-parcel-subdivision" placeholder="Enter subdivision" required>
+                    </div>
+                  </div>
+                  <div class="row pb-3">
+                    <div class="form-group col-md-6">
+                      <label for="land-parcel-city">City:</label>
+                      <input type="text" class="form-control" id="land-parcel-city" name="land-parcel-city" placeholder="Enter city" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="land-parcel-province">Province:</label>
+                      <input type="text" class="form-control" id="land-parcel-province" name="land-parcel-province" placeholder="Enter province" required>
+                    </div>
+                  </div>
+                  <div class="row pb-3">
+                    <div class="form-group col-md-6">
+                      <label for="land-parcel-zipcode">Zip Code:</label>
+                      <input type="text" class="form-control" id="land-parcel-zipcode" name="land-parcel-zipcode" placeholder="Enter zip code" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="land-parcel-area">Area:</label>
+                      <input type="text" class="form-control" id="land-parcel-area" name="land-parcel-area" placeholder="Enter area" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="project-access-modifier">Access Modifier:</label>
-            <select class="form-control" id="project-access-modifier">
-              <option value="private">Private</option>
-              <option value="public">Public</option>
-              <option value="surveyors">Surveyors</option>
-            </select>
+
+          <div class="row py-3">
+            <div class="form-group col-md-8">
+              <label for="project-surveyor">Surveyor:</label>
+              <select class="form-control" id="project-surveyor"></select>
+            </div>
+            <button type="button" class="add-button no-style rounded btn btn-info lss-fg-white col-md-4 mt-auto" data-bs-toggle="modal" data-bs-target="#surveyorModal">
+              New Surveyor
+            </button>
           </div>
-          <div class="form-group">
-            <label for="project-client">Client:</label>
-            <select class="form-control" id="project-client">
-              <!-- Options for land parcels will be dynamically populated -->
-            </select>
+          <div class="accordion" id="surveyorAccordion">
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header" id="surveyorHeading">
+                <button class="accordion-button collapsed custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#surveyorCollapse" aria-expanded="false" aria-controls="surveyorCollapse">
+                  Involved Surveyor
+                </button>
+              </h2>
+              <div id="surveyorCollapse" class="accordion-collapse collapse" aria-labelledby="surveyorHeading" data-bs-parent="#surveyorAccordion">
+                <div class="accordion-body border border-white rounded-bottom">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Surveyor ID</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody id="addedSurveyor">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="land-parcel-legal">Legal Description:</label>
-            <input type="text" class="form-control" id="land-parcel-legal" placeholder="Enter legal description"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="land-parcel-street">Street:</label>
-            <input type="text" class="form-control" id="land-parcel-street" placeholder="Enter street" required>
-          </div>
-          <div class="form-group">
-            <label for="land-parcel-subdivision">Subdivision:</label>
-            <input type="text" class="form-control" id="land-parcel-subdivision" placeholder="Enter subdivision"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="land-parcel-city">City:</label>
-            <input type="text" class="form-control" id="land-parcel-city" placeholder="Enter city" required>
-          </div>
-          <div class="form-group">
-            <label for="land-parcel-province">Province:</label>
-            <input type="text" class="form-control" id="land-parcel-province" placeholder="Enter province" required>
-          </div>
-          <div class="form-group">
-            <label for="land-parcel-zipcode">Zip Code:</label>
-            <input type="text" class="form-control" id="land-parcel-zipcode" placeholder="Enter zip code" required>
-          </div>
-          <div class="form-group">
-            <label for="land-parcel-area">Area:</label>
-            <input type="text" class="form-control" id="land-parcel-area" placeholder="Enter area" required>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+          <button type="submit" class="btn btn-info lss-fg-white mt-3">Submit</button>
         </form>
       </div>
     </div>
@@ -176,18 +289,121 @@
 </div>
 
 
-<!-- 
-<div class="modal fade" id="projectModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="projectModalLabel">Project Form</h5>
+<!-- Project View Modal -->
+<div class="modal fade" id="projectViewModal" tabindex="-1" aria-labelledby="projectViewModalLabel" aria-hidden="true">
+  <div class="modal-dialog rounded">
+    <div class="modal-content bg-transparent">
+      <div class="modal-header border-bottom border-secondary">
+        <h5 class="modal-title" id="projectViewModalLabel">Project Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <img id="projectViewImage" src="" class="img-fluid rounded" alt="Project Image">
+          </div>
+          <div class="col-md-6">
+            <h4 id="projectViewName"></h4>
+            <p><strong>Client:</strong> <span id="projectViewClient"></span></p>
+            <p><strong>Start Date:</strong> <span id="projectViewStartDate"></span></p>
+            <p><strong>End Date:</strong> <span id="projectViewEndDate"></span></p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <h6>Description:</h6>
+            <p id="projectViewDescription"></p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <h6>Address:</h6>
+            <p id="projectViewAddress"></p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="data card-body lss-bg-white">
+            <!-- Your dropdown -->
+            <div class="accordion" id="projectViewSurveyorsAccordion">
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="projectViewSurveyorsHeading">
+                  <button class="accordion-button collapsed custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#projectViewSurveyorsCollapse" aria-expanded="false" aria-controls="projectViewSurveyorsCollapse">
+                    Project View Surveyors
+                  </button>
+                </h2>
+                <div id="projectViewSurveyorsCollapse" class="accordion-collapse collapse" aria-labelledby="projectViewSurveyorsHeading" data-bs-parent="#projectViewSurveyorsAccordion">
+                  <div class="accordion-body border border-white rounded-bottom">
+                    <!-- Your table -->
+                    <table class="table align-items-center table-flush table-hover m-0">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="text-center">Full Name</th>
+                          <th scope="col" class="text-center">Email</th>
+                          <th scope="col" class="text-center">Title</th>
+                          <th scope="col" class="text-center">Contact Number</th>
+                        </tr>
+                      </thead>
+                      <tbody id="projectViewSurveyors"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of dropdown -->
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="data card-body lss-bg-white">
+            <div class="accordion" id="projectViewImagesAccordion">
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="projectViewImagesHeading">
+                  <button class="accordion-button collapsed custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#projectViewImagesCollapse" aria-expanded="false" aria-controls="projectViewImagesCollapse">
+                    Images
+                  </button>
+                </h2>
+                <div id="projectViewImagesCollapse" class="accordion-collapse collapse" aria-labelledby="projectViewImagesHeading" data-bs-parent="#projectViewImagesAccordion">
+                  <div class="accordion-body border border-white rounded-bottom">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <!-- Place your image-related content here -->
+                        <div id="projectViewImages" class="row">
+                          <!-- Your images will go here -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="deleteProjectModal" tabindex="-1">
+  <div class="modal-dialog rounded">
+    <div class="modal-content bg-transparent">
+      <div class="modal-header border-bottom border-secondary">
+        <h5 class="modal-title" id="deleteProjectModalLabel">Remove Project</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
         </button>
       </div>
       <div class="modal-body">
-        <form action=""></form>
+        <form>
+          <div class="mb-2">
+            <div for="deleteButton">Are you sure you want to remove <em id="projectInfo"></em>&quest;</div>
+          </div>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">No</button>
+          <button type="submit" class="btn btn-info lss-fg-white ml-3">Yes</button>
+        </form>
       </div>
     </div>
   </div>
-</div> -->
+</div>

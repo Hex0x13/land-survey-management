@@ -24,22 +24,21 @@ document.addEventListener('DOMContentLoaded', function() {
       document.querySelector(contentID).classList.add('show');
     }
 
-    const deleteSurveyorBtn = event.target.closest('#surveyor .delete-btn');
-    if (deleteSurveyorBtn) {
-      const elemID = 'data-surveyor-id';
-      const row = deleteSurveyorBtn.closest(`[${elemID}]`);
-      const id = row.getAttribute(elemID);
-      deleteSurveyor(id).then(() => displaySurveyors());
+    const view = event.target.closest('.trigger-view');
+    if (view) {
+      const id = view.getAttribute('data-id');
+      getProject(id).then(displayProjectDetails);
     }
 
-    const deleteClientBtn = event.target.closest('#clients .delete-btn');
-    if (deleteClientBtn) {
-      const elemID = 'data-client-id';
-      const row = deleteClientBtn.closest(`[${elemID}]`);
-      const id = row.getAttribute(elemID);
-      deleteClient(id).then(() => displayClients());
+    const deleteProjectBtn = event.target.closest('[data-bs-target="#deleteProjectModal"]');
+    if (deleteProjectBtn) {
+      const deleteModal = deleteProjectBtn.getAttribute('data-bs-target')
+      const modal = document.querySelector(deleteModal);
+      modal.querySelector('#projectInfo').textContent = deleteProjectBtn.getAttribute('data-name');
+      const id = deleteProjectBtn.getAttribute('data-id');
+      modal.setAttribute('data-project-id', id);
+      displayProjects();
     }
-
   }
 
   const menu = document.querySelector('.toggle-menu');

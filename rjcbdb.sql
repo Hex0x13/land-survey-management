@@ -22,7 +22,7 @@ create table Land_Parcel(
     Province varchar(100) not null,
     ZipCode varchar(10) not null,
     area varchar(100) not null,
-	foreign key (Client_ID) references Client(ID)
+	foreign key (Client_ID) references Client(ID) on delete cascade
 );
 
 create table Survey_project (
@@ -32,7 +32,7 @@ create table Survey_project (
     Description varchar(1020) not null,
     time_started datetime not null,
     time_ended datetime,
-    foreign key (Parcel_ID) references Land_Parcel(ID)
+    foreign key (Parcel_ID) references Land_Parcel(ID) on delete cascade
 );
 
 create table Surveyor (
@@ -49,25 +49,17 @@ create table Surveyor (
 create table Survey_Project_Surveyor (
 	Surveyor_ID int not null,
     Survey_Project_ID int not null,
-    foreign key (Survey_Project_ID) references Survey_Project(ID),
-    foreign key (Surveyor_ID) references Surveyor(ID),
+    foreign key (Survey_Project_ID) references Survey_Project(ID) on delete cascade,
+    foreign key (Surveyor_ID) references Surveyor(ID) on delete cascade,
     primary key (Surveyor_ID, Survey_Project_ID)
 );
 
 create table Survey_Project_Image(
 	ID int not null auto_increment primary key,
     Project_ID int not null,
-    Binary_Data mediumblob,
-    Access_Modifier enum('private', 'public', 'surveyors'),
-	foreign key (Project_ID) references Survey_Project(ID)
+    Image_URL varchar(255) not null,
+	foreign key (Project_ID) references Survey_Project(ID) on delete cascade
 );
-
-create table Page_Admin (
-	ID int not null auto_increment primary key,
-    email varchar(255),
-    password varchar(255)
-);
-
 
 -- CLIENT TABLE CONFIG
 create view Client_With_Fullname as 
@@ -80,7 +72,7 @@ select
 			then concat(substr(middle_name, 1, 1), '. ')
 			else ''
 		end),
-        last_name,
+        last_name, ' ',
         (case
 			when name_extension is null
             then ''
@@ -130,7 +122,7 @@ select
 			then concat(substr(middle_name, 1, 1), '. ')
 			else ''
 		end),
-        last_name,
+        last_name, ' ',
         (case
 			when name_extension is null
             then ''
