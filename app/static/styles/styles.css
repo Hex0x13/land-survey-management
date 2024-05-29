@@ -147,3 +147,11 @@ body,
   padding: 10px;
   border-radius: 10px;
 }
+
+td {
+  text-wrap: nowrap !important;
+}
+
+.modal-dialog {
+  max-width: 800px;
+}

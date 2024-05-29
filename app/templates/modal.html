@@ -167,6 +167,21 @@
             </div>
           </div>
           <div class="row pb-3">
+            <div class="form-group col-md-6">
+              <label for="service_type">Service offer:</label>
+              <select class="form-select" id="service_type" name="service_type" required>
+                <option value="Relocation Survey">Relocation Survey</option>
+                <option value="Subdivision Survey">Subdivision Survey</option>
+                <option value="Consolidation Survey">Consolidation Survey</option>
+                <option value="Sketch Plan">Sketch Plan</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="compensation">Compensation:</label>
+              <input type="number" step="0.01" class="form-control" id="compensation" name="compensation" placeholder="Php">
+            </div>
+          </div>
+          <div class="row pb-3">
             <div class="form-group col-md-12">
               <label for="project-description">Description:</label>
               <textarea class="form-control" id="project-description" name="project-description" rows="3" placeholder="Enter project description" required></textarea>
@@ -307,6 +322,8 @@
             <p><strong>Client:</strong> <span id="projectViewClient"></span></p>
             <p><strong>Start Date:</strong> <span id="projectViewStartDate"></span></p>
             <p><strong>End Date:</strong> <span id="projectViewEndDate"></span></p>
+            <p><strong>Service Type:</strong> <span id="projectViewServiceType"></span></p>
+            <p><strong>Compensation:</strong> <span id="projectViewCompensation"></span></p>
           </div>
         </div>
         <div class="row mb-3">

@@ -32,6 +32,8 @@ create table Survey_project (
     Description varchar(1020) not null,
     time_started datetime not null,
     time_ended datetime,
+    service_type ENUM('Relocation Survey', 'Subdivision Survey', 'Consolidation Survey', 'Sketch Plan') NOT NULL,
+    compensation DECIMAL(15, 2) NOT NULL,
     foreign key (Parcel_ID) references Land_Parcel(ID) on delete cascade
 );
 

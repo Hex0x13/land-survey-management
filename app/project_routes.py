@@ -47,8 +47,10 @@ def add_project():
         province = html.escape(data.get('land-parcel-province'))
         zipcode = html.escape(data.get('land-parcel-zipcode'))
         area = html.escape(data.get('land-parcel-area'))
+        service_type = html.escape(data.get('service_type'))
+        compensation = html.escape(data.get('compensation'))
         surveyors = [html.escape(s) for s in request.form.getlist('surveyor_id')]
-        
+
         image_urls = []
         upload_name = 'uploadedImage'
         if upload_name in request.files:
@@ -63,7 +65,7 @@ def add_project():
                     image_urls.append(ufilename)
         
         project_model = ProjectModel()
-        project_model.insert_project(client_id, project_name, description, start_date, end_date, legal_description, street, subdivision, city, province, zipcode, area, surveyors, image_urls)
+        project_model.insert_project(client_id, project_name, description, start_date, end_date, service_type, compensation, legal_description, street, subdivision, city, province, zipcode, area, surveyors, image_urls)
         
         return jsonify({"status": "success", "message": "Project added successfully"})
     
@@ -113,6 +115,8 @@ def update_project(id):
         province = html.escape(data.get('land-parcel-province'))
         zipcode = html.escape(data.get('land-parcel-zipcode'))
         area = html.escape(data.get('land-parcel-area'))
+        service_type = html.escape(data.get('service_type'))
+        compensation = html.escape(data.get('compensation'))
         surveyors = [html.escape(s) for s in request.form.getlist('surveyor_id')]
         
         image_urls = []
@@ -129,7 +133,7 @@ def update_project(id):
                     image_urls.append(ufilename)
         
         project_model = ProjectModel()
-        project_model.update_project(id, client_id, project_name, description, start_date, end_date, legal_description, street, subdivision, city, province, zipcode, area, surveyors, image_urls)
+        project_model.update_project(id, client_id, project_name, description, start_date, end_date, service_type, compensation, legal_description, street, subdivision, city, province, zipcode, area, surveyors, image_urls)
         
         return jsonify({"status": "success", "message": "Project updated successfully"})
     

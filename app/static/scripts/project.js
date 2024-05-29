@@ -147,6 +147,8 @@ function fillFormWithProjectData(projectData) {
     // Set the values of the datetime-local input fields
     document.getElementById('project-start').value = startTime;
     document.getElementById('project-end').value = endTime;
+    document.getElementById('service_type').value = projectData.service_type;
+    document.getElementById('compensation').value = projectData.compensation;
 
     document.getElementById('project-description').value = projectData.Description;
 
@@ -158,6 +160,7 @@ function fillFormWithProjectData(projectData) {
     document.getElementById('land-parcel-province').value = projectData.Province;
     document.getElementById('land-parcel-zipcode').value = projectData.ZipCode;
     document.getElementById('land-parcel-area').value = projectData.area;
+
 
   
   const surveyorTableBody = document.getElementById('addedSurveyor');
@@ -214,14 +217,11 @@ function createProjectCard(project) {
   const footer = document.createElement('div');
   footer.classList.add('card-footer', 'd-flex', 'justify-content-end', 'align-items-end');
 
-  const clientName = document.createElement('p');
-  clientName.classList.add('bg-transparent', 'lss-fg-black', 'p-0', 'my-0', 'mr-auto', 'w-100');
-  clientName.style.maxWidth = '90px';
-  clientName.style.textWrap = 'nowrap';
-  clientName.style.overflow = 'hidden';
-  clientName.style.textOverflow = 'ellipsis';
-  clientName.textContent = project.full_name;
-  footer.appendChild(clientName);
+  const service_type = document.createElement('p');
+  service_type.classList.add('bg-transparent', 'lss-fg-black', 'p-0', 'my-0', 'mr-auto', 'w-100');
+  service_type.style.maxWidth = '90px';
+  service_type.textContent = project.service_type;
+  footer.appendChild(service_type);
 
   const viewButton = document.createElement('button');
   const viewIcon = document.createElement('i');
@@ -287,6 +287,9 @@ function displayProjectDetails(project) {
   const projectViewAddress = document.getElementById('projectViewAddress');
   const projectViewSurveyors = document.getElementById('projectViewSurveyors');
   const projectViewImages = document.getElementById('projectViewImages');
+  const projectViewServiceType = document.getElementById('projectViewServiceType');
+  const projectViewCompensation = document.getElementById('projectViewCompensation');
+
 
   projectViewSurveyors.innerHTML = '';
   projectViewImages.innerHTML = '';
@@ -303,6 +306,8 @@ function displayProjectDetails(project) {
   projectViewEndDate.textContent = formatDate(project.time_ended);
   projectViewDescription.textContent = project.Description;
   projectViewAddress.textContent = `${project.Legal_Description}, ${project.Street}, ${project.Subdivision}, ${project.City}, ${project.Province}, ${project.ZipCode}`;
+  projectViewServiceType.textContent = project.service_type;
+  projectViewCompensation.textContent = 'Php' + project.compensation;
 
   // Populate surveyors
   project.surveyors.forEach(surveyor => {

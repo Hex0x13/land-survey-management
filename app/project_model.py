@@ -1,7 +1,7 @@
 from app.models import get_connection
 
 class ProjectModel:
-    def insert_project(self, client_id, project_name, description, start_date, end_date, legal_description, street, subdivision, city, province, zipcode, area, surveyors, image_urls):
+    def insert_project(self, client_id, project_name, description, start_date, end_date, service_type, compensation, legal_description, street, subdivision, city, province, zipcode, area, surveyors, image_urls):
         conn = get_connection()
         cursor = conn.cursor()
 
@@ -19,8 +19,8 @@ class ProjectModel:
         cursor.execute(parcel_query, parcel_values)
         parcel_id = cursor.lastrowid
 
-        project_query = """INSERT INTO Survey_Project (Name, Description, time_started, time_ended, Parcel_ID) VALUES (%s, %s, %s, %s, %s)"""
-        project_values = (project_name, description, start_date, end_date, parcel_id)
+        project_query = """INSERT INTO Survey_Project (Name, Description, time_started, time_ended, service_type, compensation, Parcel_ID) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+        project_values = (project_name, description, start_date, end_date, service_type, compensation, parcel_id)
         cursor.execute(project_query, project_values)
         project_id = cursor.lastrowid
 
@@ -39,10 +39,8 @@ class ProjectModel:
         cursor = conn.cursor()
         
         # Fetch all projects
-        project_query = """SELECT sp.ID, sp.Name, c.full_name
-                        FROM Survey_Project sp
-                        JOIN Land_Parcel lp ON sp.Parcel_ID = lp.ID
-                        JOIN Client_With_Fullname c ON c.ID = lp.Client_ID"""
+        project_query = """SELECT sp.ID, sp.Name, sp.service_type
+                        FROM Survey_Project sp"""
         cursor.execute(project_query)
         datas = cursor.fetchall()
         projects = []
@@ -73,7 +71,7 @@ class ProjectModel:
     def fetch_project(self, id):
         conn = get_connection()
         cursor = conn.cursor()
-        query = """SELECT sp.ID, sp.Name, sp.Description, sp.time_started, sp.time_ended, 
+        query = """SELECT sp.ID, sp.Name, sp.Description, sp.time_started, sp.time_ended, sp.service_type, sp.compensation,
                           lp.Legal_Description, lp.Street, lp.Subdivision, lp.City, lp.Province, lp.ZipCode, lp.area,
                           c.id as client_id, c.first_name AS client_first_name, c.last_name AS client_last_name, c.contact_number AS client_contact_number, c.email AS client_email
                    FROM Survey_Project sp
@@ -108,7 +106,7 @@ class ProjectModel:
         conn.close()
         return project_data
 
-    def update_project(self, id, client_id, project_name, description, start_date, end_date, legal_description, street, subdivision, city, province, zipcode, area, surveyors, images):
+    def update_project(self, id, client_id, project_name, description, start_date, end_date, service_type, compensation, legal_description, street, subdivision, city, province, zipcode, area, surveyors, images):
         conn = get_connection()
         cursor = conn.cursor()
 
@@ -122,10 +120,10 @@ class ProjectModel:
 
         # Update Survey_Project
         project_query = """UPDATE Survey_Project 
-                        SET Name = %s, Description = %s, time_started = %s, time_ended = %s 
+                        SET Name = %s, Description = %s, time_started = %s, time_ended = %s service_type = %s, compensation = %s,
                         WHERE ID = %s"""
         project_values = (project_name, description,
-                        start_date, end_date, id)
+                        start_date, end_date, service_type, compensation, id)
         cursor.execute(project_query, project_values)
 
         # Update Survey_Project_Surveyor
