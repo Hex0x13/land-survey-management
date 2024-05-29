@@ -125,3 +125,38 @@ class ClientModel:
         cursor.close()
         conn.close()
         return assoc_data
+
+
+class User:
+    def get_surveyor_id_by_email(self, email):
+        conn = get_connection()
+        cursor = conn.cursor()
+        query = "SELECT ID FROM Surveyor WHERE email = %s"
+        cursor.execute(query, (email,))
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return result[0] if result else None
+
+    def insert_user(self, email, password):
+        surveyor_id = self.get_surveyor_id_by_email(email)
+        if surveyor_id is None:
+            raise Exception("Surveyor with this email does not exist.")
+        conn = get_connection()
+        cursor = conn.cursor()
+        query = "INSERT INTO User (password, surveyor_id) VALUES (%s, %s)"
+        cursor.execute(query, (password, surveyor_id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return cursor.lastrowid
+
+    def select_user(self, email, password):
+        conn = get_connection()
+        cursor = conn.cursor()
+        query = "SELECT u.id, s.email, u.surveyor_id FROM User u JOIN Surveyor s WHERE s.email = %s AND u.password = %s"
+        cursor.execute(query, (email, password))
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return result

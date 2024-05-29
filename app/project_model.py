@@ -39,8 +39,10 @@ class ProjectModel:
         cursor = conn.cursor()
         
         # Fetch all projects
-        project_query = """SELECT sp.ID, sp.Name
-                        FROM Survey_Project sp"""
+        project_query = """SELECT sp.ID, sp.Name, c.full_name
+                        FROM Survey_Project sp
+                        JOIN Land_Parcel lp ON sp.Parcel_ID = lp.ID
+                        JOIN Client_With_Fullname c ON c.ID = lp.Client_ID"""
         cursor.execute(project_query)
         datas = cursor.fetchall()
         projects = []

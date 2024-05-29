@@ -214,6 +214,15 @@ function createProjectCard(project) {
   const footer = document.createElement('div');
   footer.classList.add('card-footer', 'd-flex', 'justify-content-end', 'align-items-end');
 
+  const clientName = document.createElement('p');
+  clientName.classList.add('bg-transparent', 'lss-fg-black', 'p-0', 'my-0', 'mr-auto', 'w-100');
+  clientName.style.maxWidth = '90px';
+  clientName.style.textWrap = 'nowrap';
+  clientName.style.overflow = 'hidden';
+  clientName.style.textOverflow = 'ellipsis';
+  clientName.textContent = project.full_name;
+  footer.appendChild(clientName);
+
   const viewButton = document.createElement('button');
   const viewIcon = document.createElement('i');
   viewIcon.classList.add('icon', 'view', 'bg-transparent', 'border-0');
@@ -281,6 +290,9 @@ function displayProjectDetails(project) {
 
   projectViewSurveyors.innerHTML = '';
   projectViewImages.innerHTML = '';
+  projectViewImage.style.height = '300px';
+  projectViewImage.style.width = '271px';
+  projectViewImage.style.objectFit = 'cover';
 
   // Set project details
   projectViewImage.src = (project.images.length > 0)? 'static/uploads/' + project.images[0].url : 'static/images/no-image.png';

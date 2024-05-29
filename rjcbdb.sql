@@ -61,6 +61,14 @@ create table Survey_Project_Image(
 	foreign key (Project_ID) references Survey_Project(ID) on delete cascade
 );
 
+create table User (
+	ID INT NOT NULL primary key auto_increment,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    surveyor_id INT NOT NULL,
+    foreign key (surveyor_id) references Surveyor(ID) on delete cascade
+);
+
 -- CLIENT TABLE CONFIG
 create view Client_With_Fullname as 
 select
@@ -161,3 +169,25 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+INSERT INTO Surveyor (
+    first_name,
+    last_name,
+    middle_name,
+    name_extension,
+    title,
+    contact_number,
+    email
+) VALUES (
+	'Florante',
+    'Benitez',
+    'Conde',
+    'jr.',
+    'manager',
+    '0943435555555',
+    'benitez@mail.com'
+);
+SET @lastID = (SELECT LAST_INSERT_ID());
+INSERT INTO USER (email, password, surveyor_id) VALUES ('admin@mail.com', 'root', @lastID);
+
